@@ -14,6 +14,15 @@
 		},
 		{
 			"type": "shell",
+			"label": "frontend start",
+			"command": "npm start http://127.0.0.1:3000",
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": []
+		},
+		{
+			"type": "shell",
 			"label": "npm install (functions)",
 			"command": "npm install",
 			"options": {
@@ -28,6 +37,18 @@
 			"options": {
 				"cwd": "${workspaceFolder}/api"
 			}
+		},
+		{
+			"type": "shell",
+			"problemMatcher": [
+				"$swa-watch"
+			],
+			"label": "swa: start Medlocks_playground",
+			"command": "swa start",
+			"dependsOn": [
+				"frontend start",
+				"func: host start"
+			]
 		}
 	]
 }
